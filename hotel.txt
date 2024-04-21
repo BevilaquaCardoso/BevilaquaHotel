@@ -1,0 +1,133 @@
+USUARIO;  - adm
+id_usuario
+nome*
+senha*
+adm
+
+
+CLIENTE;
+id_cliente
+nome*
+cpf/cnpj
+fone de contato*
+fone de contato 02
+email
+genero*
+endereco
+UF
+estado
+cidade
+bairro
+
+
+FUNCIONARIO; - adm
+id_funcionario
+nome*
+cargo*
+cpf*
+salario*
+tipo de salario*
+fone de contato*
+fone de contato 02
+email
+genero*
+endereco
+UF
+estado
+cidade
+bairro
+
+	
+PRODUTOS;
+id_produto PK
+nome
+valor
+marca
+fornecedor
+
+
+QUARTO;  - adm
+id_quarto PK
+id_categoria FK
+nome
+local
+categoria
+valor
+quant cama casal
+quant cama solteiro
+pessoas max
+quantidade
+
+
+CATEGORIA_QUARTOS; - adm
+id_categoria
+nome
+DUVIDA-essa tabela deve existir, para vincular ela na tabela quarto?
+ou escreve direto a categoria do quarto no nome do quarto
+
+FORMA DE MAGAMENTO; - adm
+id_forma_pag
+nome
+
+----------------------------
+
+
+RESERVA;
+id_reserva PK
+id_cliente FK
+id_funcionario FK
+data de emissao
+cliente
+data de inicio
+data de final
+status (aberta-fechada)
+valor total
+desconto
+acrecimo
+observaçoes
+forma de pagamento
+
+
+RESERVA_QUARTOS;
+id_reserva fk
+id_quarto FK
+id_produto FK
+tipo (quat-prod)
+quarto
+produto
+valor unico
+desconto
+observaçoes
+
+
+CAIXA;
+id_reserva FK
+id_cliente FK
+cliente
+valor total
+saldo
+data de emissao
+vendedor
+pago (sim-nao) (0-1) (true-false)
+duvida-é possivel usar um "select" sentro do java para validar se na tabela caixa foi pago ou nao
+
+
+CONTAS;
+id_reserva FK
+id_cliente FK
+id_usuario FK
+id_funcionario FK
+cliente
+vendedor
+forma de pagamento
+usuario
+valor total
+desconto
+acrecimo
+emissao
+status
+
+
+
+
+
